@@ -325,7 +325,7 @@ public class CartTests extends BaseTest {
         Collections.sort(expectedProductsInCart);
         Collections.sort(pricesOfAddedItems);
 
-        Assert.assertTrue(expectedProductsInCart.equals(pricesOfAddedItems));
+        Assert.assertEquals(expectedProductsInCart, pricesOfAddedItems);
 
 
     }
@@ -457,7 +457,7 @@ public class CartTests extends BaseTest {
         Collections.sort(expectedProductsInCart);
         Collections.sort(listaImenaProizvoda);
 
-        Assert.assertTrue(expectedProductsInCart.equals(listaImenaProizvoda));
+        Assert.assertEquals(expectedProductsInCart, listaImenaProizvoda);
 
 
     }

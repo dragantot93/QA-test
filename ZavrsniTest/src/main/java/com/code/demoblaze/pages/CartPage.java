@@ -1,6 +1,5 @@
 package com.code.demoblaze.pages;
 
-import com.sun.jdi.IntegerType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -45,13 +44,7 @@ public class CartPage extends BasePage {
 
     public List<WebElement> productsPricesInProductTable() {
 
-        return getProductTable().findElements(xpath("//tbody /tr /td[3]"));
-    }
-
-    public By allProductsTableRowsLocator() {
-
-        return By.xpath("//tbody /tr");
-    }
+        return getProductTable().findElements(xpath("//tbody /tr /td[3]")); }
 
     public boolean verifyIfProductsPriceEqualsTotalPrice() {
 

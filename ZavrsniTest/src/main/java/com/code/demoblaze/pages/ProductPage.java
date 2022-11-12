@@ -25,11 +25,6 @@ public class ProductPage extends BasePage {
         return driver.findElement(By.cssSelector("#cartur"));
     }
 
-    public By locatorBtnAddToCart() {
-
-        return By.cssSelector("a[class*='btn']");
-    }
-
     public By loginBtnBlock() {
 
         return By.cssSelector("a[style='display: block;'][id='nameofuser']");

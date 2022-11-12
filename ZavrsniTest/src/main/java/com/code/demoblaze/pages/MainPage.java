@@ -51,11 +51,6 @@ public class MainPage extends BasePage {
         return driver.findElement(By.cssSelector("#cartur"));
     }
 
-    public By loginBtnBlock() {
-
-        return By.cssSelector("a[style='display: block;'][id='nameofuser']");
-    }
-
     public void acceptAlert() {
 
         driver.switchTo().alert().accept();
@@ -212,11 +207,6 @@ public class MainPage extends BasePage {
         } else return false;
 
 
-    }
-
-    public String logInButtonBlockLocator() {
-
-        return "a[style='display: block;'][id='nameofuser']";
     }
 
     public String getAlertTextMsg() {

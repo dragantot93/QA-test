@@ -28,11 +28,8 @@ public class Product {
 
     public Product(String name) {
         this.name = name;
-
     }
 
-    public Product(int price) {
-        this.price = price;
-    }
+
 
 }

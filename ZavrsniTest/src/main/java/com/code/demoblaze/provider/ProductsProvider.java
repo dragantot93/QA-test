@@ -1,5 +1,4 @@
 package com.code.demoblaze.provider;
-
 import org.testng.annotations.DataProvider;
 
 public class ProductsProvider {
