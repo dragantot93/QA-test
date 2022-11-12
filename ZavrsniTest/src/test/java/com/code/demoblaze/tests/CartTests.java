@@ -1,16 +1,14 @@
 package com.code.demoblaze.tests;
 
 import com.code.demoblaze.models.Product;
+import com.code.demoblaze.models.User;
 import com.code.demoblaze.pages.CartPage;
 import com.code.demoblaze.pages.MainPage;
 import com.code.demoblaze.pages.ProductPage;
 import com.code.demoblaze.provider.ProductsProvider;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +22,7 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         CartPage cartPage = new CartPage(driver);
         mainPage.openCartPage();
@@ -32,84 +30,84 @@ public class CartTests extends BaseTest {
 
         ProductPage productPage = new ProductPage(driver);
 
-        mainPage.addItemToCartByName("Samsung galaxy s6");
+        mainPage.addItemToCartByName(new Product("Samsung galaxy s6"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Nokia lumia 1520");
+        mainPage.addItemToCartByName(new Product("Nokia lumia 1520"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Nexus 6");
+        mainPage.addItemToCartByName(new Product("Nexus 6"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Samsung galaxy s7");
+        mainPage.addItemToCartByName(new Product("Samsung galaxy s7"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Iphone 6 32gb");
+        mainPage.addItemToCartByName(new Product("Iphone 6 32gb"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Sony xperia z5");
+        mainPage.addItemToCartByName(new Product("Sony xperia z5"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("HTC One M9");
+        mainPage.addItemToCartByName(new Product("HTC One M9"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Sony vaio i5");
+        mainPage.addItemToCartByName(new Product("Sony vaio i5"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Sony vaio i7");
+        mainPage.addItemToCartByName(new Product("Sony vaio i7"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Apple monitor 24");
+        mainPage.addItemToCartByName(new Product("Apple monitor 24"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("MacBook air");
+        mainPage.addItemToCartByName(new Product("MacBook air"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Dell i7 8gb");
+        mainPage.addItemToCartByName(new Product("Dell i7 8gb"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("2017 Dell 15.6 Inch");
+        mainPage.addItemToCartByName(new Product("2017 Dell 15.6 Inch"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("ASUS Full HD");
+        mainPage.addItemToCartByName(new Product("ASUS Full HD"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("MacBook Pro");
+        mainPage.addItemToCartByName(new Product("MacBook Pro"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
         productPage.openCartPage();
 
-        Assert.assertEquals(true, cartPage.verifyIfProductsPriceEqualsTotalPrice());
+        Assert.assertTrue(cartPage.verifyIfProductsPriceEqualsTotalPrice());
 
     }
 
@@ -120,7 +118,7 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         ProductPage productPage = new ProductPage(driver);
 
@@ -203,7 +201,7 @@ public class CartTests extends BaseTest {
 
         CartPage cartPage = new CartPage(driver);
 
-        Assert.assertEquals(true, cartPage.verifyIfProductsPriceEqualsTotalPrice());
+        Assert.assertTrue(cartPage.verifyIfProductsPriceEqualsTotalPrice());
 
     }
 
@@ -216,18 +214,18 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         ProductPage productPage = new ProductPage(driver);
 
-        mainPage.addItemToCartByName(productName);
+        mainPage.addItemToCartByName(new Product(productName));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openCartPage();
 
         CartPage cartPage = new CartPage(driver);
 
-        Assert.assertEquals(true, cartPage.verifyIfProductsPriceEqualsTotalPrice());
+        Assert.assertTrue(cartPage.verifyIfProductsPriceEqualsTotalPrice());
     }
 
     // Drugi zadatak (dodavanje samo jednog proizvoda i upoređivanje Total price)
@@ -239,7 +237,7 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         CartPage cartPage = new CartPage(driver);
 
@@ -247,12 +245,12 @@ public class CartTests extends BaseTest {
         cartPage.clearCartAndReturnToMainPage();
 
         ProductPage productPage = new ProductPage(driver);
-        mainPage.addItemToCartByName(productName);
+        mainPage.addItemToCartByName(new Product(productName));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openCartPage();
 
-        Assert.assertEquals(true, cartPage.verifyIfProductsPriceEqualsTotalPrice());
+        Assert.assertTrue(cartPage.verifyIfProductsPriceEqualsTotalPrice());
     }
 
     // Test nije vezan za zadatke
@@ -262,7 +260,7 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         CartPage cartPage = new CartPage(driver);
 
@@ -270,8 +268,8 @@ public class CartTests extends BaseTest {
         cartPage.clearCartAndReturnToMainPage();
 
         ProductPage productPage = new ProductPage(driver);
-        int priceOfAddedItem = mainPage.getPriceOfChosenProduct(productName);
-        mainPage.addItemToCartByName(productName);
+        int priceOfAddedItem = mainPage.getPriceOfChosenProduct(new Product(productName));
+        mainPage.addItemToCartByName(new Product(productName));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openCartPage();
@@ -286,7 +284,7 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         CartPage cartPage = new CartPage(driver);
 
@@ -297,26 +295,26 @@ public class CartTests extends BaseTest {
 
         ProductPage productPage = new ProductPage(driver);
 
-        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct("Nexus 6"));
-        mainPage.addItemToCartByName("Nexus 6");
+        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct(new Product("Nexus 6")));
+        mainPage.addItemToCartByName(new Product("Nexus 6"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct("Samsung galaxy s6"));
-        mainPage.addItemToCartByName("Samsung galaxy s6");
+        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct(new Product("Samsung galaxy s6")));
+        mainPage.addItemToCartByName(new Product("Samsung galaxy s6"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct("MacBook Pro"));
-        mainPage.addItemToCartByName("MacBook Pro");
+        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct(new Product("MacBook Pro")));
+        mainPage.addItemToCartByName(new Product("MacBook Pro"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct("MacBook Pro"));
-        mainPage.addItemToCartByName("MacBook Pro");
+        pricesOfAddedItems.add(mainPage.getPriceOfChosenProduct(new Product("MacBook Pro")));
+        mainPage.addItemToCartByName(new Product("MacBook Pro"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
@@ -339,7 +337,7 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         CartPage cartPage = new CartPage(driver);
 
@@ -347,7 +345,7 @@ public class CartTests extends BaseTest {
         cartPage.clearCartAndReturnToMainPage();
 
         ProductPage productPage = new ProductPage(driver);
-        mainPage.addItemToCartByName(productName);
+        mainPage.addItemToCartByName(new Product(productName));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openCartPage();
@@ -362,10 +360,10 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         ProductPage productPage = new ProductPage(driver);
-        mainPage.addItemToCartByName("Nexus 6");
+        mainPage.addItemToCartByName(new Product("Nexus 6"));
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openCartPage();
@@ -382,25 +380,25 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         ProductPage productPage = new ProductPage(driver);
 
         List<String> listaImenaProizvoda = new ArrayList<>();
 
-        mainPage.addItemToCartByName("Apple monitor 24");
+        mainPage.addItemToCartByName(new Product("Apple monitor 24"));
         listaImenaProizvoda.add("Apple monitor 24");
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("MacBook air");
+        mainPage.addItemToCartByName(new Product("MacBook air"));
         listaImenaProizvoda.add("MacBook air");
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Dell i7 8gb");
+        mainPage.addItemToCartByName(new Product("Dell i7 8gb"));
         listaImenaProizvoda.add("Dell i7 8gb");
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
@@ -424,7 +422,7 @@ public class CartTests extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.clickOnLogInOpener();
-        mainPage.login("test", "test");
+        mainPage.login(new User("test", "test"));
 
         CartPage cartPage = new CartPage(driver);
 
@@ -435,19 +433,19 @@ public class CartTests extends BaseTest {
 
         List<String> listaImenaProizvoda = new ArrayList<>();
 
-        mainPage.addItemToCartByName("Apple monitor 24");
+        mainPage.addItemToCartByName(new Product("Apple monitor 24"));
         listaImenaProizvoda.add("Apple monitor 24");
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("MacBook air");
+        mainPage.addItemToCartByName(new Product("MacBook air"));
         listaImenaProizvoda.add("MacBook air");
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();
         productPage.openHomePage();
 
-        mainPage.addItemToCartByName("Dell i7 8gb");
+        mainPage.addItemToCartByName(new Product("Dell i7 8gb"));
         listaImenaProizvoda.add("Dell i7 8gb");
         productPage.clickBtnAddToCart();
         productPage.acceptAlertAfterAddingItem();

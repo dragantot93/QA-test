@@ -266,5 +266,48 @@ public class MainPage extends BasePage {
 
     }
 
+    public int getPriceOfChosenProduct(Product product) throws InterruptedException {
+
+        int toReturn = 0;
+
+        List<WebElement> webElementList = this.getProducts();
+
+        for (int i = 0; i < webElementList.size(); i++) {
+
+            WebElement webElementItemName = webElementList.get(i).findElement(By.cssSelector("a[class='hrefch']"));
+            String itemName = webElementItemName.getText();
+
+            if (itemName.equals(product.getName())) {
+                WebElement storePriceValueWebElement = getProducts().get(i).findElement(By.cssSelector("div[class*='col-lg-4'] h5"));
+                String storePriceValue = storePriceValueWebElement.getText().split("\\$")[1];
+                toReturn = Integer.parseInt(storePriceValue);
+                break;
+
+            }
+        }
+
+        if (toReturn == 0) {
+
+            driver.findElement(By.cssSelector("button[id='next2']")).click();
+            Thread.sleep(4000);
+            List<WebElement> webElementList2 = this.getProducts();
+
+            for (int i = 0; i < webElementList2.size(); i++) {
+
+                WebElement webElementItemName = webElementList2.get(i).findElement(By.cssSelector("a[class='hrefch']"));
+                String itemName = webElementItemName.getText();
+
+                if (itemName.equals(product.getName())) {
+                    WebElement storePriceValueWebElement = getProducts().get(i).findElement(By.cssSelector("div[class*='col-lg-4'] h5"));
+                    String storePriceValue = storePriceValueWebElement.getText().split("\\$")[1];
+                    toReturn = Integer.parseInt(storePriceValue);
+                    break;
+                }
+            }
+        }
+        return toReturn;
+
+    }
+
 
 }
