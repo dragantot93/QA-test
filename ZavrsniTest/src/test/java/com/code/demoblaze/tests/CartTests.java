@@ -1,5 +1,6 @@
 package com.code.demoblaze.tests;
 
+import com.code.demoblaze.TestComponents.Retry;
 import com.code.demoblaze.models.Product;
 import com.code.demoblaze.models.User;
 import com.code.demoblaze.pages.CartPage;
@@ -112,7 +113,7 @@ public class CartTests extends BaseTest {
     }
 
     // Drugi zadatak (dodavanje svih proizvoda i u slučaju kada nešto već postoji u korpi, pa potom uporediti Total price)
-    @Test
+    @Test(groups= {"DrugiZadatak"}, retryAnalyzer= Retry.class)
     public void verifyTotalPriceAddingAllProductItems() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -206,7 +207,7 @@ public class CartTests extends BaseTest {
     }
 
     // Drugi zadatak (dodavanje svih proizvoda, jedan po jedan, i nakon svakog dodavanja novog proizvoda, uporediti Total price)
-    @Test(dataProvider = "ProductsNameProvider", dataProviderClass = ProductsProvider.class)
+    @Test(dataProvider = "ProductsNameProvider", dataProviderClass = ProductsProvider.class, groups= {"DrugiZadatak"}, retryAnalyzer= Retry.class)
     public void verifyTotalPriceAddingAllItemsOneByOne(String productName) throws InterruptedException {
 
         //U ovom testu nije bitno koliko ima prethodno Itema u korpi
@@ -229,7 +230,7 @@ public class CartTests extends BaseTest {
     }
 
     // Drugi zadatak (dodavanje samo jednog proizvoda i upoređivanje Total price)
-    @Test(dataProvider = "ProductsNameProvider", dataProviderClass = ProductsProvider.class)
+    @Test(dataProvider = "ProductsNameProvider", dataProviderClass = ProductsProvider.class, groups= {"DrugiZadatak"}, retryAnalyzer= Retry.class)
     public void verifyTotalPriceAfterAddingSingleItem(String productName) throws InterruptedException {
 
         //U ovom testu je bitno da se samo jedan Item nalazi u korpi
@@ -331,7 +332,7 @@ public class CartTests extends BaseTest {
     }
 
     // Treći zadatak (provera da li se proizvod nalazi u tabeli, a kada je korpa prazna)
-    @Test(dataProvider = "ProductsNameProvider", dataProviderClass = ProductsProvider.class)
+    @Test(dataProvider = "ProductsNameProvider", dataProviderClass = ProductsProvider.class, groups= {"TreciZadatak"}, retryAnalyzer= Retry.class)
     public void verifyIsAddedProductInCartTableAfterClearCart(String productName) throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -354,7 +355,7 @@ public class CartTests extends BaseTest {
     }
 
     // Treći zadatak (provera da li se dodati proizvod nalazi u tabeli, čak i kada u korpi postoji neki proizvod)
-    @Test
+    @Test(groups= {"TreciZadatak"}, retryAnalyzer= Retry.class)
     public void verifyIsAddedProductInCartTable() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -374,7 +375,7 @@ public class CartTests extends BaseTest {
     }
 
     // Treći zadatak (provera da li se dodati proizvodi nalaze u tabeli, čak i kada u korpi postoji neki proizvod)
-    @Test
+    @Test(groups= {"TreciZadatak"}, retryAnalyzer= Retry.class)
     public void verifyAreAddedProductsInCartTable() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -416,7 +417,7 @@ public class CartTests extends BaseTest {
     }
 
     // Treći zadatak (provera da li se dodati proizvodi nalaze u tabeli, čak i kada u korpi postoji neki proizvod)
-    @Test
+    @Test(groups= {"TreciZadatak"}, retryAnalyzer= Retry.class)
     public void verifyAreAddedProductsInCartTableAfterClearCart() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);

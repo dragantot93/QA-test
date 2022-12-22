@@ -1,5 +1,6 @@
 package com.code.demoblaze.tests;
 
+import com.code.demoblaze.TestComponents.Retry;
 import com.code.demoblaze.models.User;
 import com.code.demoblaze.pages.MainPage;
 import org.testng.Assert;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
 
     //Prvi zadatak
-    @Test
+    @Test(groups = {"Login"}, retryAnalyzer= Retry.class)
     public void verifyLogIn() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -25,7 +26,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"Login"}, retryAnalyzer= Retry.class)
     public void verifyLogInWithoutUsername() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -43,7 +44,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"Login"}, retryAnalyzer= Retry.class)
     public void verifyLogInWithoutPassword() throws InterruptedException {
 
        MainPage mainPage = new MainPage(driver);
@@ -61,7 +62,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"Login"}, retryAnalyzer= Retry.class)
     public void verifyLogInWithoutCredentials() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -79,7 +80,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"Login"}, retryAnalyzer= Retry.class)
     public void verifyLogInWithWrongUsername() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -97,7 +98,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(groups = {"Login"}, retryAnalyzer= Retry.class)
     public void verifyLogInWithWrongPassword() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);

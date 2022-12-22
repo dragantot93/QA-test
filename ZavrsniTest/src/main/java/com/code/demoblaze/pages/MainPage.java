@@ -17,8 +17,6 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-
-
     }
 
     public void openPage() {
@@ -75,7 +73,6 @@ public class MainPage extends BasePage {
         getInpUserName().sendKeys(user.getUserName());
         getInpPassword().sendKeys(user.getPassword());
         getBtnLogin().click();
-
         Thread.sleep(3000);
     }
 
